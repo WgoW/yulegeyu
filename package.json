@@ -12,9 +12,13 @@
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "localforage": "^1.10.0",
     "lucide-react": "^0.379.0",
+    "match-sorter": "^6.3.4",
     "react": "19.0.0-beta-26f2496093-20240514",
     "react-dom": "19.0.0-beta-26f2496093-20240514",
+    "react-router-dom": "^6.23.1",
+    "sort-by": "^1.2.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
   },
