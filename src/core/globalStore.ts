@@ -1,21 +1,21 @@
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { atomWithStorage } from 'jotai/utils'
+import { useAtomDevtools } from 'jotai-devtools'
 import { defaultGameConfig } from '@/core/gameConfig.ts'
-import type { GameConfigType } from '@/core/types.ts'
 
-export const useGlobalStore = create(persist(
-  setState => ({
-    customConfig: { ...defaultGameConfig },
-    gameConfig: { ...defaultGameConfig },
-    // actions
-    setGameConfig: (gameConfig: GameConfigType) => {
-      setState({ gameConfig })
-    },
-    setCustomConfig: (customConfig: GameConfigType) => {
-      setState({ customConfig })
-    },
-  }),
-  {
-    name: 'global-store',
-  },
-))
+export const customConfigAtom = atomWithStorage(
+  'global-custom-config',
+  { ...defaultGameConfig },
+)
+export const gameConfigAtom = atomWithStorage(
+  'global-game-config',
+  { ...defaultGameConfig },
+)
+
+export function useGlobalDevtools() {
+  // 1. Redux DevTools
+  useAtomDevtools(customConfigAtom, { name: 'customConfigAtom' })
+  useAtomDevtools(gameConfigAtom, { name: 'gameConfigAtom' })
+  // 2. React Dev Tools
+  customConfigAtom.debugLabel = 'customConfigAtom'
+  gameConfigAtom.debugLabel = 'gameConfigAtom'
+}
