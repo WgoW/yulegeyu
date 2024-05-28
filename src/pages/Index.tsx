@@ -10,13 +10,16 @@ import {
 } from '@/core/gameConfig.ts'
 import type { GameConfigType } from '@/core/types.ts'
 import { GameMode } from '@/core/types.ts'
+import { useGlobalStore } from '@/core/globalStore.ts'
 
 function Index() {
   const navigate = useNavigate()
 
+  const { setGameConfig } = useGlobalStore()
+
   const toGame = (config?: GameConfigType) => {
     if (config) {
-      // todo 这里先修改redux的值
+      setGameConfig(config)
       navigate('/game', { state: config })
     }
     else {
