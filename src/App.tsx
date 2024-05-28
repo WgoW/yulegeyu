@@ -6,7 +6,7 @@ import Layout from '@/pages/Layout.tsx'
 
 function App() {
   return (
-    <div className="max-w-sm mx-auto bg-transparent">
+    <div className="max-w-md mx-auto bg-transparent">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Index />} />

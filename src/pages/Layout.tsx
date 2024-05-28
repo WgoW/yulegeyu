@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom'
 function Layout() {
   return (
     <div>
-      <nav>
+      <nav className="hidden">
         <ul>
           <li>
             <Link to="/">首页</Link>

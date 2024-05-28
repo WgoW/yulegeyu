@@ -1,6 +1,5 @@
 import { Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import { useAtom } from 'jotai'
 import {
   easyGameConfig,
   hardGameConfig,
@@ -11,11 +10,12 @@ import {
 } from '@/core/gameConfig.ts'
 import type { GameConfigType } from '@/core/types.ts'
 import { GameMode } from '@/core/types.ts'
-import { gameConfigAtom, useGlobalDevtools } from '@/core/globalStore'
+import { useGlobalConfig, useGlobalDevtools } from '@/core/globalStore'
 
 function Index() {
   const navigate = useNavigate()
-  const [_, setGameConfig] = useAtom(gameConfigAtom)
+  const { setGameConfig } = useGlobalConfig()
+
   useGlobalDevtools()
 
   const toGame = (config?: GameConfigType) => {
