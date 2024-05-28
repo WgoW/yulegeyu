@@ -6,13 +6,15 @@ import Layout from '@/pages/Layout.tsx'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Index />} />
-        <Route path="game" element={<Game />} />
-        <Route path="config" element={<Config />} />
-      </Route>
-    </Routes>
+    <div className="max-w-sm mx-auto bg-transparent">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Index />} />
+          <Route path="game" element={<Game />} />
+          <Route path="config" element={<Config />} />
+        </Route>
+      </Routes>
+    </div>
   )
 }
 
