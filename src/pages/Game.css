@@ -1,0 +1,45 @@
+.level-board {
+    position: relative;
+}
+
+.level-block {
+    position: absolute;
+}
+
+.random-board {
+    margin-top: 8px;
+}
+
+.random-area {
+    margin-top: 8px;
+}
+
+.slot-board {
+    border: 10px solid saddlebrown;
+    margin: 16px auto;
+    width: fit-content;
+}
+
+.skill-board {
+    text-align: center;
+}
+
+.block {
+    font-size: 28px;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    border: 1px solid #eee;
+    background: white;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 13px 13px 10px rgba(0, 0, 0, 0.035),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.disabled {
+    background: grey;
+    cursor: not-allowed;
+}

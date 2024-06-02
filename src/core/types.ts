@@ -3,16 +3,16 @@
  */
 export interface BlockType {
   id: number
-  x: number
-  y: number
-  level: number
-  type: string
-  // 0 - 正常, 1 - 已点击, 2 - 已消除
+  x: number // 块的横坐标 ,通过xy坐标确定块在哪一个格子里面
+  y: number // 块的纵坐标
+  level: number // 第几层,数字越大层数越高
+  type: string // 是什么类型的图片,比如说是🐔
+  // 0 - 正常, 1 - 已点击(已进槽), 2 - 已消除
   status: 0 | 1 | 2
-  // 压住的其他块
-  higherThanBlocks: BlockType[]
-  // 被哪些块压住（为空表示可点击）
-  lowerThanBlocks: BlockType[]
+  // 下面的块,压住的其他块
+  downBlocks: BlockType[]
+  // 上面的块,被哪些块压住（为空表示可点击）
+  upBlocks: BlockType[]
 }
 
 /**
@@ -33,12 +33,12 @@ export interface GameConfigType {
   composeNum: number
   // 动物类别数
   typeNum: number
-  // 每层块数（大致）
-  levelBlockNum: number
   // 边界收缩步长
   borderStep: number
-  // 总层数（最小为 2）
+  // 总层(批)数（最小为 2）
   levelNum: number
+  // 每层(批)块数（大致）
+  levelBlockNum: number
   // 随机区块数（数组长度代表随机区数量，值表示每个随机区生产多少块）
   randomBlocks: number[]
   // 动物数组
@@ -70,4 +70,12 @@ export enum GameMode {
   SKY = '天狱模式',
   YANG = '羊了个羊模式',
   CUSTOM = '自定义模式',
+}
+
+// 游戏状态
+export enum GameStatus {
+  INIT = 0, // 初始化
+  PLAYING = 1, // 进行中
+  STOP_FAIL = 2, // 失败结束
+  STOP_WIN = 3, // 胜利结束
 }

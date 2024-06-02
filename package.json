@@ -1,13 +1,14 @@
 {
   "name": "ton-game",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "antd": "^5.17.4",
@@ -15,6 +16,7 @@
     "clsx": "^2.1.1",
     "jotai": "^2.8.2",
     "localforage": "^1.10.0",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.379.0",
     "match-sorter": "^6.3.4",
     "react": "19.0.0-beta-26f2496093-20240514",
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.19.0",
+    "@types/lodash": "^4.17.4",
     "@types/node": "^18.19.33",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -42,6 +45,7 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "vite": "^5.2.0",
+    "vitest": "^1.5.0"
   }
 }
